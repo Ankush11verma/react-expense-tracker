@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './header';
 import Transaction from './Transaction';
-import Table from './table';
+import Table from './Table';
 
 function App() {
   const [transactions, setTransactions] = useState([]);
