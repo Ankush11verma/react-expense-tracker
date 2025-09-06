@@ -24,20 +24,10 @@ function Table({ transactions, onUpdate, onDelete }) {
                         <td style={{color:"green"}}>{t.income}</td>
                         <td style={{color:"red"}}>{t.expense}</td>
                         <td>
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
-                                alt="Update"
-                                style={{ width: "20px", cursor: "pointer" }}
-                                onClick={() => onUpdate(idx)}
-                            />
+                            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Update" style={{ width: "20px", cursor: "pointer",filter: "invert(41%) sepia(98%) saturate(749%) hue-rotate(81deg) brightness(93%) contrast(92%)"}} onClick={() => onUpdate(idx)} />
                         </td>
                         <td>
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
-                                alt="Delete"
-                                style={{ width: "20px", cursor: "pointer" }}
-                                onClick={() => onDelete(idx)}
-                            />
+                            <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" alt="Delete" style={{ width: "20px", cursor: "pointer", filter: "invert(18%) sepia(97%) saturate(7492%) hue-rotate(357deg) brightness(97%) contrast(119%)" }} onClick={() => onDelete(idx)} />
                         </td>
                     </tr>
                 ))}
