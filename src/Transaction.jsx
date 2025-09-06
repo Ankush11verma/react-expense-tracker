@@ -37,35 +37,16 @@ function Transaction({ transactions, onSave, editIndex, setEditIndex }) {
 
     return (
         <form className="transaction" onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Description"
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-                required
-            />
-            <input
-                type="date"
-                placeholder="Date"
-                value={date}
-                onChange={e => setDate(e.target.value)}
-                required
-            />
-            <input
-                type="number"
-                placeholder="Income"
-                value={income}
-                onChange={e => setIncome(e.target.value)}
-            />
-            <input
-                type="number"
-                placeholder="Expense"
-                value={expense}
-                onChange={e => setExpense(e.target.value)}
-            />
-            <button id="button" type="submit">
-                {editIndex !== null ? "Update Transaction" : "Add Transaction"}
-            </button>
+            <label htmlFor="desc"><b>Description</b></label>
+            <input type="text" className="inputClass" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} required />
+            <label htmlFor="desc"><b>Date</b></label>
+            <input type="date" className="inputClass" placeholder="Date" value={date} onChange={e => setDate(e.target.value)} required />
+            <label htmlFor="desc"><b>Income</b></label>
+            <input type="number" className="inputClass" placeholder="Income" value={income}onChange={e => setIncome(e.target.value)} />
+            <label htmlFor="desc"><b>Expense</b></label>
+            <input type="number" className="inputClass" placeholder="Expense" value={expense}
+            onChange={e => setExpense(e.target.value)} />
+            <button id="button" type="submit"> {editIndex !== null ? "Update Transaction" : "Add Transaction"} </button>
         </form>
     );
 }

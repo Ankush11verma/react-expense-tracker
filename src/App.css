@@ -52,3 +52,8 @@
   border: 2px solid whitesmoke;
   border-radius: "8px";
 }
+
+.inputClass{
+  border-radius: 10px;
+  height: 17px;
+}
