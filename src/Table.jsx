@@ -25,6 +25,10 @@ function Table({ transactions }) {
                     <td><strong>Total Income: {totalIncome}</strong></td>
                     <td><strong>Total Expense: {totalExpense}</strong></td>
                 </tr>
+                <tr>
+                    <td colSpan="2" style={{ color:totalIncome - totalExpense < 0 ? "red" : totalIncome - totalExpense > 0 ? "blue" : "inherit"}} >
+                    <strong>Balance: {totalIncome - totalExpense}</strong></td>
+                </tr>
             </tfoot>
         </table>
     );

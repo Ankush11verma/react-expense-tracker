@@ -46,3 +46,9 @@
   color: #61dafb;
   margin-top: 0%;
 }
+
+.main{
+  background-color: azure;
+  border: 2px solid whitesmoke;
+  border-radius: "8px";
+}
