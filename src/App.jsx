@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import Header from "./header";
 import Transaction from "./Transaction";
-import Table from "./table";
+import Table from "./Table";
 import IncomeExpenseChart from "./IncomeExpenseChart";
 
 function App() {
