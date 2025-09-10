@@ -38,8 +38,12 @@ const transactionSchema = new mongoose.Schema(
 const Transaction = mongoose.model("Transaction", transactionSchema);
 
 // Routes
+// app.get("/", (req, res) => {
+//   res.send("✅ Expense Tracker API is running...");
+// });
+
 app.get("/", (req, res) => {
-  res.send("✅ Expense Tracker API is running...");
+  res.send("✅ Backend is running");
 });
 
 app.get("/transactions", async (req, res) => {
