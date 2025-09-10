@@ -3,46 +3,36 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-// ----------------------------
-// App Config
-// ----------------------------
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// ----------------------------
 // Middleware
-// ----------------------------
 app.use(cors());
 app.use(bodyParser.json());
 
-// ----------------------------
 // MongoDB Connection
-// ----------------------------
 mongoose
-  .connect("mongodb://127.0.0.1:27017/expense-tracker", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// ----------------------------
-// Transaction Schema & Model
-// ----------------------------
-const transactionSchema = new mongoose.Schema({
-  income: { type: Number, default: 0 },
-  expense: { type: Number, default: 0 },
-  description: { type: String, required: true },
-  date: { type: String, required: true },
-});
+// Schema & Model
+const transactionSchema = new mongoose.Schema(
+  {
+    income: { type: Number, default: 0 },
+    expense: { type: Number, default: 0 },
+    description: { type: String, required: true },
+    date: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
 const Transaction = mongoose.model("Transaction", transactionSchema);
 
-// ----------------------------
 // Routes
-// ----------------------------
-
-// 👉 Get all transactions
 app.get("/transactions", async (req, res) => {
   try {
     const transactions = await Transaction.find().sort({ createdAt: -1 });
@@ -52,7 +42,6 @@ app.get("/transactions", async (req, res) => {
   }
 });
 
-// 👉 Add new transaction
 app.post("/transactions", async (req, res) => {
   try {
     const { income, expense, description, date } = req.body;
@@ -64,20 +53,16 @@ app.post("/transactions", async (req, res) => {
   }
 });
 
-// 👉 Update transaction
 app.put("/transactions/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedTransaction = await Transaction.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
+    const updatedTransaction = await Transaction.findByIdAndUpdate(id, req.body, { new: true });
     res.json(updatedTransaction);
   } catch (err) {
     res.status(500).json({ error: "Failed to update transaction" });
   }
 });
 
-// 👉 Delete transaction
 app.delete("/transactions/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -88,9 +73,7 @@ app.delete("/transactions/:id", async (req, res) => {
   }
 });
 
-// ----------------------------
 // Start Server
-// ----------------------------
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
