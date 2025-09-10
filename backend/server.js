@@ -6,11 +6,21 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// ✅ Fix CORS (allow your Vercel frontend)
+app.use(cors({
+  origin: [
+    "https://react-expense-tracker-flame.vercel.app", // your deployed frontend
+    "http://localhost:5173" // for local dev
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
+// ----------------------------
 // MongoDB Connection
+// ----------------------------
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -19,7 +29,9 @@ mongoose
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
+// ----------------------------
 // Schema & Model
+// ----------------------------
 const transactionSchema = new mongoose.Schema(
   {
     income: { type: Number, default: 0 },
@@ -32,7 +44,9 @@ const transactionSchema = new mongoose.Schema(
 
 const Transaction = mongoose.model("Transaction", transactionSchema);
 
+// ----------------------------
 // Routes
+// ----------------------------
 app.get("/transactions", async (req, res) => {
   try {
     const transactions = await Transaction.find().sort({ createdAt: -1 });
@@ -73,7 +87,9 @@ app.delete("/transactions/:id", async (req, res) => {
   }
 });
 
+// ----------------------------
 // Start Server
+// ----------------------------
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
