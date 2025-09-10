@@ -13,13 +13,13 @@ function App() {
   //✅ Load transactions from backend
   // useEffect(() => {
   //   axios
-  //     .get("/transactions")   // 🔥 Removed http://localhost:5000
+  //     .get("/transactions")   // 🔥 Removed https://react-expense-tracker-zu8n.onrender.com
   //     .then((res) => setTransactions(res.data))
   //     .catch((err) => console.error("Error fetching transactions:", err));
   // }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/transactions")
+    fetch("https://react-expense-tracker-zu8n.onrender.com/transactions")
       .then(res => res.json())
       .then(data => {
         console.log(data); // check what you get
@@ -35,7 +35,7 @@ function App() {
       return;
 
     try {
-      await axios.delete(`http://localhost:5000/transactions/${id}`);  // 🔥 Changed here
+      await axios.delete(`https://react-expense-tracker-zu8n.onrender.com/transactions/${id}`);  // 🔥 Changed here
       setTransactions(transactions.filter((_, i) => i !== idx));
       if (editIndex === idx) setEditIndex(null);
     } catch (err) {
@@ -56,7 +56,7 @@ function App() {
 
       try {
         const res = await axios.put(
-          `http://localhost:5000/transactions/${transactionToUpdate._id}`,   // 🔥 Changed here
+          `https://react-expense-tracker-zu8n.onrender.com/transactions/${transactionToUpdate._id}`,   // 🔥 Changed here
           { income, expense, description, date }
         );
 
@@ -70,7 +70,7 @@ function App() {
     } else {
       // ➕ Add new transaction
       try {
-        const res = await axios.post("http://localhost:5000/transactions", {   // 🔥 Changed here
+        const res = await axios.post("https://react-expense-tracker-zu8n.onrender.com/transactions", {   // 🔥 Changed here
           income,
           expense,
           description,
