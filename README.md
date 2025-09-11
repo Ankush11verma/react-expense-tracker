@@ -1,12 +1,35 @@
-# React + Vite
+# 💰 Expense Tracker (MERN Stack)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack expense tracking application built with **React, Node.js, Express, and MongoDB Atlas**.  
+Deployed live with **Vercel** (frontend) and **Render** (backend).  
 
-Currently, two official plugins are available:
+👉 **Live Demo:** [Expense Tracker App](https://react-expense-tracker-flame.vercel.app/)  
+👉 **Backend API:** [Expense Tracker API](https://react-expense-tracker-zu8n.onrender.com/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
+- **Frontend:** React (Vite), Chart.js/Recharts (for graphs), CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB Atlas (Mongoose ORM)
+- **Deployment:** Vercel (frontend), Render (backend)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+- ➕ Add transactions (income or expense)
+- ✏️ Update and 🗑️ Delete transactions
+- 📊 Real-time totals (Income, Expense, Balance)
+- 📈 Visual charts for income vs expenses
+- 🕒 Stores transaction date automatically
+- 🌐 Deployed & connected to cloud MongoDB
+- 📱 Responsive design (desktop & mobile friendly)
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/expense-tracker.git
+cd expense-tracker
