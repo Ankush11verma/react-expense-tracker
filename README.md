@@ -27,9 +27,29 @@ Deployed live with **Vercel** (frontend) and **Render** (backend).
 
 ---
 
+## 📷 Screenshots
+
+### Input
+screenshot/input.png
+
+### Table
+screenshot/table.png
+
+### Chart View
+screenshot/graph.png
+
+### Delete Entry
+screenshot/delete.png
+
+### Update Entry
+screenshot/update.png
+
+
+---
+
 ## 🛠️ Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/Ankush11verma/react-expense-tracker.git
 cd expense-tracker
