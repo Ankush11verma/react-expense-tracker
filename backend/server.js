@@ -13,8 +13,16 @@ const MONGO_URI =
   "mongodb://127.0.0.1:27017/expense-tracker"; // fallback only for local dev
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://react-expense-tracker-flame.vercel.app"], 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+//app.use(bodyParser.json());
+import bodyParser from "body-parser";
 app.use(bodyParser.json());
+
 
 // MongoDB connection
 mongoose
